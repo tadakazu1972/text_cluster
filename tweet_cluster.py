@@ -11,7 +11,7 @@ from sklearn.cluster import KMeans, MiniBatchKMeans
 from sklearn.decomposition import TruncatedSVD
 from sklearn.preprocessing import Normalizer
 
-FILENAME = 'osaka20150820.csv'
+FILENAME = 'osaka20150820a.csv'
 NUM_CLUSTERS = 1000
 LSA_DIM = 500
 MAX_DF = 0.8
@@ -22,7 +22,7 @@ def get_tweets_from_csv(filename):
     ret = csv.reader(open(filename))
     # tweets = [r[7].decode('utf-8') for r in ret]
     tweets = [r[0].decode('utf-8') for r in ret]
-	
+
     for tweet in tweets[:]:
         if u'@' in tweet:
             tweets.remove(tweet)
@@ -33,7 +33,7 @@ def get_tweets_from_csv(filename):
 
 def analyzer(text):
     ret = []
-    tagger = MeCab.Tagger('-Ochasen -d /usr/local/Cellar/mecab/0.996/lib/mecab/dic/mecab-ipadic-neologd')
+    tagger = MeCab.Tagger('-Ochasen -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
     node = tagger.parseToNode(text.encode('utf-8'))
     node = node.next
     while node.next:

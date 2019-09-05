@@ -1,0 +1,11 @@
+2019.9.5
+tweet_cluster.pyを起動させた記録
+
+結局、ターミナルで既存のpython2.7で動かした。
+brewでpyenvをインストール
+brewでmecabをインストール
+
+neologdの辞書は/usr/local/lib/mecab/dicまで降りてから、git cloneして、
+さらに生成された中にはいって、インストール
+そうすると、/usr/local/lib/mecab/dic/mecab-ipadic-neologdができている
+それを辞書パスとして書き換えた
